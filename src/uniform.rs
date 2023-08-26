@@ -18,7 +18,8 @@ where
     /// ## Example
     /// ```
     /// use tri_poly_moment::Uniform;
-    /// let uniform_int_float = Uniform::new(-13.3, 11);
+    /// let uniform = Uniform::new(-13.3, 11);
+    /// uniform.x(); //if calc E[x]
     /// ```
 
     pub fn new(l: T, u: U) -> Self {
