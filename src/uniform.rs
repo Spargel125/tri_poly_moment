@@ -37,7 +37,7 @@ where
     /// `E[x^2]`
     pub fn xx(&self) -> f64 {
         let (l, u) = self.parse_argument();
-        (u * u + u * l + l * l) / 3.0f64
+        (u.powf(2.0) + u * l + l.powf(2.0)) / 3.0f64
     }
     /// `E[cos(x)]`
     pub fn c(&self) -> f64 {
@@ -62,15 +62,16 @@ where
     /// `E[x^2 cos(x)]`
     pub fn xxc(&self) -> f64 {
         let (l, u) = self.parse_argument();
-        -((-u * u + 2.0) * u.sin() - 2.0 * u * u.cos()
-            + (l * l - 2.0) * l.sin()
+        -((-u.powf(2.0) + 2.0) * u.sin() - 2.0 * u * u.cos()
+            + (l.powf(2.0) - 2.0) * l.sin()
             + 2.0 * l * l.cos())
             / (u - l)
     }
     /// `E[x^2 sin(x)]`
     pub fn xxs(&self) -> f64 {
         let (l, u) = self.parse_argument();
-        ((-u * u + 2.0) * u.cos() + 2.0 * u * u.sin() + (l * l - 2.0) * l.cos() - 2.0 * l * l.sin())
+        ((-u.powf(2.0) + 2.0) * u.cos() + 2.0 * u * u.sin() + (l.powf(2.0) - 2.0) * l.cos()
+            - 2.0 * l * l.sin())
             / (u - l)
     }
     /// `E[cos(x)*sin(x)]`
