@@ -29,25 +29,35 @@ where
     pub fn new(l: T, u: U) -> Self {
         Self { l: l, u: u }
     }
-    /// calc `E[x]`
+    /// `E[x]`
     pub fn x(&self) -> f64 {
         let (l, u) = self.parse_argument();
         (u + l) / (2.0f64)
     }
-    /// calc `E[x^2]`
+    /// `E[x^2]`
     pub fn xx(&self) -> f64 {
         let (l, u) = self.parse_argument();
         (u * u + u * l + l * l) / 3.0f64
     }
-    /// calc `E[cos(x)]`
+    /// `E[cos(x)]`
     pub fn c(&self) -> f64 {
         let (l, u) = self.parse_argument();
         (u.sin() - l.sin()) / (u - l)
     }
-    /// calc `E[sin(x)]`
+    /// `E[sin(x)]`
     pub fn s(&self) -> f64 {
         let (l, u) = self.parse_argument();
         -(u.cos() - l.cos()) / (u - l)
+    }
+    /// `E[x*cos(x)]`
+    pub fn xc(&self) -> f64 {
+        let (l, u) = self.parse_argument();
+        -(-u * u.sin() + l * l.sin() - u.cos() + l.cos()) / (u - l)
+    }
+    /// `E[x*sin(x)]`
+    pub fn xs(&self) -> f64 {
+        let (l, u) = self.parse_argument();
+        -(u * u.cos() - l * l.cos() - u.sin() + l.sin()) / (u - l)
     }
 }
 
