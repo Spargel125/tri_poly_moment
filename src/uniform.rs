@@ -59,6 +59,39 @@ where
         let (l, u) = self.parse_argument();
         -(u * u.cos() - l * l.cos() - u.sin() + l.sin()) / (u - l)
     }
+    /// `E[x^2 cos(x)]`
+    pub fn xxc(&self) -> f64 {
+        let (l, u) = self.parse_argument();
+        -((-u * u + 2.0) * u.sin() - 2.0 * u * u.cos()
+            + (l * l - 2.0) * l.sin()
+            + 2.0 * l * l.cos())
+            / (u - l)
+    }
+    /// `E[x^2 sin(x)]`
+    pub fn xxs(&self) -> f64 {
+        let (l, u) = self.parse_argument();
+        ((-u * u + 2.0) * u.cos() + 2.0 * u * u.sin() + (l * l - 2.0) * l.cos() - 2.0 * l * l.sin())
+            / (u - l)
+    }
+    /// `E[cos(x)*sin(x)]`
+    pub fn cs(&self) -> f64 {
+        let (l, u) = self.parse_argument();
+        -0.5 * ((2.0 * u).cos() - (2.0 * l).cos()) / (2.0 * u - 2.0 * l)
+    }
+    /// `E[sin(x)*cos(x)]`
+    pub fn sc(&self) -> f64 {
+        self.cs()
+    }
+    /// `E[cos(x)*cos(x)]`
+    pub fn cc(&self) -> f64 {
+        let (l, u) = self.parse_argument();
+        0.5 * (((2.0 * u).sin() - (2.0 * l).sin()) / (2.0 * u - 2.0 * l) + 1.0)
+    }
+    /// `E[sin(x)*sin(x)]`
+    pub fn ss(&self) -> f64 {
+        let (l, u) = self.parse_argument();
+        0.5 * (1.0 - ((2.0 * u).sin() - (2.0 * l).sin()) / (2.0 * u - 2.0 * l))
+    }
 }
 
 #[cfg(test)]

@@ -15,7 +15,12 @@ mod tests_uniform {
         assert!(uniform_int.s() - (-0.013143705785961) < 1e-12);
         assert!(uniform_int.xc() - 0.560761429618663 < 1e-12);
         assert!(uniform_int.xs() - 0.916865557390441 < 1e-12);
-        
+        assert!(uniform_int.xxc() - 3.518188423893031 < 1e-12);
+        assert!(uniform_int.xxs() - 11.936792649779795 < 1e-12);
+        assert!(uniform_int.cc() - 0.480351177142802 < 1e-12);
+        assert!(uniform_int.ss() - 0.916865557390441 < 1e-12);
+        assert!(uniform_int.sc() - 0.012493899100262 < 1e-12);
+        assert!(uniform_int.cs() - 0.012493899100262 < 1e-12);
     }
     #[test]
     fn test_float() {
