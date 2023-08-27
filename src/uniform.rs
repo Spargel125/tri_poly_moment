@@ -59,7 +59,7 @@ where
         let (l, u) = self.parse_argument();
         -(u * u.cos() - l * l.cos() - u.sin() + l.sin()) / (u - l)
     }
-    /// `E[x^2 cos(x)]`
+    /// `E[x^2*cos(x)]`
     pub fn xxc(&self) -> f64 {
         let (l, u) = self.parse_argument();
         -((-u.powf(2.0) + 2.0) * u.sin() - 2.0 * u * u.cos()
@@ -67,7 +67,7 @@ where
             + 2.0 * l * l.cos())
             / (u - l)
     }
-    /// `E[x^2 sin(x)]`
+    /// `E[x^2*sin(x)]`
     pub fn xxs(&self) -> f64 {
         let (l, u) = self.parse_argument();
         ((-u.powf(2.0) + 2.0) * u.cos() + 2.0 * u * u.sin() + (l.powf(2.0) - 2.0) * l.cos()

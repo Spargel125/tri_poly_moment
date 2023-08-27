@@ -3,5 +3,7 @@
 
 
 mod uniform;
+mod gaussian;
 
 pub use uniform::Uniform;
+pub use gaussian::Gaussian;
