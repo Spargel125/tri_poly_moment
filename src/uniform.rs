@@ -22,31 +22,42 @@ where
     /// uniform.x(); //if calc E[x]
     /// ```
 
+    fn parse_argument(&self) -> (f64, f64) {
+        (self.l.into(), self.u.into())
+    }
+
     pub fn new(l: T, u: U) -> Self {
         Self { l: l, u: u }
     }
     /// calc `E[x]`
     pub fn x(&self) -> f64 {
-        let u = self.u.into();
-        let l = self.l.into();
+        let (l, u) = self.parse_argument();
         (u + l) / (2.0f64)
     }
     /// calc `E[x^2]`
     pub fn xx(&self) -> f64 {
-        let u = self.u.into();
-        let l = self.l.into();
+        let (l, u) = self.parse_argument();
         (u * u + u * l + l * l) / 3.0f64
     }
     /// calc `E[cos(x)]`
     pub fn c(&self) -> f64 {
-        let u = self.u.into();
-        let l = self.l.into();
+        let (l, u) = self.parse_argument();
         (u.sin() - l.sin()) / (u - l)
     }
     /// calc `E[sin(x)]`
     pub fn s(&self) -> f64 {
-        let u = self.u.into();
-        let l = self.l.into();
+        let (l, u) = self.parse_argument();
         -(u.cos() - l.cos()) / (u - l)
+    }
+}
+
+#[cfg(test)]
+mod unit_test {
+    use super::*;
+    #[test]
+    fn parse_test() {
+        let arg = Uniform::new(-2, 5.5);
+        let (l, u) = arg.parse_argument();
+        assert!(l == -2.0 && u == 5.5);
     }
 }
