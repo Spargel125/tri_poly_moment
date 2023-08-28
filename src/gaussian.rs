@@ -9,6 +9,19 @@ where
     T: Into<f64> + Copy,
     U: Into<f64> + Copy,
 {
+    /// define new `Gaussian` distribution
+    ///
+    /// ## Arguments
+    /// * `mu` : mean of gaussian distribution
+    /// * `sigma2` :  variance of gaussian distribution (sigma2 = sigma^2)
+    ///
+    /// ## Example
+    /// ```
+    /// use tri_poly_moment::Gaussian;
+    /// let gaussian = Gaussian::new(3, 4);
+    /// gaussian.x(); //if calc E[x]
+    /// ```
+
     fn parse_argument(&self) -> (f64, f64) {
         (self.mu.into(), self.sigma2.into())
     }
