@@ -4,6 +4,8 @@
 
 mod uniform;
 mod gaussian;
+mod expotential;
 
 pub use uniform::Uniform;
 pub use gaussian::Gaussian;
+pub use expotential::Expotential;
