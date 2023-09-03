@@ -8,7 +8,7 @@
 //! The distributions of the random variables are normal, uniform, and exponential.
 //! ```toml
 //! [dependencies]
-//! tri_poly_moment = "0.1.0"
+//! tri_poly_moment = "0.1.1"
 //! ```
 //! 
 //! # Example
