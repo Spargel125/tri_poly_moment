@@ -4,7 +4,6 @@ description ="Calculate moments of random variables. The distributions of the ra
 version = "0.1.1"
 edition = "2021"
 LICENSE = "MIT"
-# license-file = "LICENSE"
 repository = "https://github.com/Spargel125/tri_poly_moment"
 readme = "README.md"
 
