@@ -9,6 +9,9 @@ where
     T: Into<f64> + Copy,
     U: Into<f64> + Copy,
 {
+    fn parse_argument(&self) -> (f64, f64) {
+        (self.mu.into(), self.sigma2.into())
+    }
     /// define new `Gaussian` distribution
     ///
     /// ## Arguments
@@ -22,9 +25,6 @@ where
     /// gaussian.x(); //if calc E[x]
     /// ```
 
-    fn parse_argument(&self) -> (f64, f64) {
-        (self.mu.into(), self.sigma2.into())
-    }
     pub fn new(mu: T, sigma2: U) -> Self {
         Self {
             mu: mu,

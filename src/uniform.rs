@@ -9,6 +9,10 @@ where
     T: Into<f64> + Copy,
     U: Into<f64> + Copy,
 {
+    fn parse_argument(&self) -> (f64, f64) {
+        (self.l.into(), self.u.into())
+    }
+
     /// define new `Uniform` distribution
     ///
     /// ## Arguments
@@ -21,10 +25,6 @@ where
     /// let uniform = Uniform::new(-13.3, 11);
     /// uniform.x(); //if calc E[x]
     /// ```
-
-    fn parse_argument(&self) -> (f64, f64) {
-        (self.l.into(), self.u.into())
-    }
 
     pub fn new(l: T, u: U) -> Self {
         Self { l: l, u: u }
