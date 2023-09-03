@@ -3,7 +3,7 @@ name = "tri_poly_moment"
 description ="Calculate moments of random variables. The distributions of the random variables are normal, uniform, and exponential. "
 version = "0.1.1"
 edition = "2021"
-LICENSE = "MIT"
+license = "MIT"
 repository = "https://github.com/Spargel125/tri_poly_moment"
 readme = "README.md"
 
