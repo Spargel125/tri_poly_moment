@@ -1,10 +1,10 @@
 [package]
 name = "tri_poly_moment"
 description ="Calculate moments of random variables. The distributions of the random variables are normal, uniform, and exponential. "
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 LICENSE = "MIT"
-license-file = "LICENSE"
+# license-file = "LICENSE"
 repository = "https://github.com/Spargel125/tri_poly_moment"
 readme = "README.md"
 
